@@ -4,23 +4,6 @@
   become_user: "{{ ansible_rhel_user }}"
   become: true
   gather_facts: true
-  pre_tasks:
-    - pause:
-        prompt: "Enter Your Red Hat Customer Portal Username"
-      when: rhn_username not defined
-      register: rhn_username
-
-    - pause:
-        prompt: "Enter Your Red Hat Customer Portal Password"
-        echo: False
-      when: rhn_password not defined
-      register: rhn_password
-
-    - name: Setting Inputs as general variables
-      set_fact:
-        rhn_username: "{{ rhn_username.user_input }}"
-        rhn_password: "{{ rhn_password.user_input }}"
-      no_log: True
 
   roles:
     - redhat-cop.jboss_common
