@@ -1,7 +1,8 @@
 ---
 
-- src: redhat-cop.jboss_eap
+- src: git@github.com:stoleas/jboss_eap.git
   name: redhat-cop.jboss_eap
+  scm: git
 
 - src: redhat-cop.jboss-common
   name: redhat-cop.jboss_common
